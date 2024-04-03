@@ -1,5 +1,5 @@
-<h1>Cadastrar Employees</h1>
-<form action="">
+<h1>{{btnTitulo}}</h1>
+<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
     <div class="input-box">
         <label for="">Nome: </label>
         <input type="text" formControlName="nome" placeholder="Insira o nome!" required>
@@ -30,7 +30,8 @@
     </div>
 
         <div class="btn-box">
-            <button type="submit">Cadastrar</button>
-            <button>Voltar</button>
+
+            <button type="submit" [disabled]="!funcionarioForm.valid">{{ btnAcao }}</button>
+            <button routerLink="">Voltar</button>
         </div>
 </form>
