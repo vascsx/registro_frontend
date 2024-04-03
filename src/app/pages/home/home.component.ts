@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { CommonModule } from '@angular/common';
 import { Funcionario } from '../../models/Funcionarios';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -14,7 +16,7 @@ export class HomeComponent implements OnInit{
  
   funcionarios: Funcionario[] = [];
   funcionariosGeral: Funcionario[] = [];
-  constructor(private funcionarioService: FuncionarioService){}
+  constructor(private funcionarioService: FuncionarioService){ }
 
   ngOnInit(): void {
      this.funcionarioService.getFuncionarios().subscribe(data => {
