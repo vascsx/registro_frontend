@@ -1,12 +1,12 @@
 <div class="funcionario-box">
-    <h4>List Employees</h4>
-    <button routerLink="cadastro">Add Employees</button>
+    <!-- <h4>Cadastrar novo funcionário</h4> -->
+    <button routerLink="cadastro">Cadastrar novo funcionário</button>
     
-    <div class="input-box">
-        <label>Procurar: </label>
-        <input type="text" placeholder="Qual registro está buscando?">
-    </div>
-</div>
+</div><!--funcionario-box-->
+<div class="input-box">
+    <label>Procurar: </label>
+    <input type="text" placeholder="Qual registro está buscando?">
+</div><!--input-box-->
 
 <table class="table">
     <thead>
@@ -36,10 +36,10 @@
                 <button routerLink="/editar/{{funcionario.id}}">Editar</button>
             </td>
             <td>
-                <button>Detalhes</button>
+                <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
             </td>
             <td><button>Excluir</button></td>
 
         </tr>
     </tbody>
-</table>
+</table><!--table-->

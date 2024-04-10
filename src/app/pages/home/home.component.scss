@@ -1,11 +1,31 @@
 .funcionario-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .input-box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: start;
+    }
     button{
+        margin: 10px;
         border: none;
-        padding: 5px;
+        padding: 10px;
         background-color: #0084FE;
         border-radius: 4px;
+        width: 56%;
         color: white;
         font-family: "Montserrat", sans-serif;
-        
+        font-weight: 600;
     }
+}
+
+.table {
+    background-color: rgb(249, 246, 246);
+    box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.51);
+    -webkit-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.51);
+    -moz-box-shadow: 0px 5px 5px 1px rgba(0,0,0,0.51);
 }
