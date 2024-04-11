@@ -1,45 +1,48 @@
-<div class="funcionario-box">
-    <!-- <h4>Cadastrar novo funcionário</h4> -->
-    <button routerLink="cadastro">Cadastrar novo funcionário</button>
+<main>
+    <div class="funcionario-box">
+        <!-- <h4>Cadastrar novo funcionário</h4> -->
+        <button routerLink="cadastro">Cadastrar novo funcionário</button>
+        
+    </div><!--funcionario-box-->
+    <div class="input-box">
+        <label>Procurar: </label>
+        <input type="text" placeholder="Qual registro está buscando?">
+    </div><!--input-box-->
     
-</div><!--funcionario-box-->
-<div class="input-box">
-    <label>Procurar: </label>
-    <input type="text" placeholder="Qual registro está buscando?">
-</div><!--input-box-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Departamento</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngFor = "let funcionario of funcionarios">
+            <tr>
+                <td>
+                    <div *ngIf="funcionario.ativo == true; else inativo">
+                        <img src="assets/images/ativo.png" alt="" width="20px">
+                    </div>
+                    <ng-template #inativo>
+                        <img src="assets/images/inativo.png" alt="" width="20px" >
+                    </ng-template>
+                </td>
+                <td> {{ funcionario.nome }}</td>
+                <td>{{ funcionario.sobrenome}}</td>
+                <td>{{funcionario.departamento}}</td>
+                <td>
+                    <button routerLink="/editar/{{funcionario.id}}">Editar</button>
+                </td>
+                <td>
+                    <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
+                </td>
+                <td><button>Excluir</button></td>
+    
+            </tr>
+        </tbody>
+    </table><!--table-->
 
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Departamento</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody *ngFor = "let funcionario of funcionarios">
-        <tr>
-            <td>
-                <div *ngIf="funcionario.ativo == true; else inativo">
-                    <img src="assets/images/ativo.png" alt="" width="20px">
-                </div>
-                <ng-template #inativo>
-                    <img src="assets/images/inativo.png" alt="" width="20px" >
-                </ng-template>
-            </td>
-            <td> {{ funcionario.nome }}</td>
-            <td>{{ funcionario.sobrenome}}</td>
-            <td>{{funcionario.departamento}}</td>
-            <td>
-                <button routerLink="/editar/{{funcionario.id}}">Editar</button>
-            </td>
-            <td>
-                <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
-            </td>
-            <td><button>Excluir</button></td>
-
-        </tr>
-    </tbody>
-</table><!--table-->
+</main>
