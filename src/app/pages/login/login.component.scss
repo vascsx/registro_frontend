@@ -7,19 +7,32 @@ main{
     form {
         display: flex;
         flex-direction: column;
-        gap: 9px;
+        gap: 12px;
+
+        input{
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #E2E8F0 ;
+        }
 
         button {
             background-color:#42A9FF;
+            color: white;
             border: none;
             padding: 10px;
             border-radius: 4px;
             text-align: center;
             margin-top: 10px;
+            box-shadow: -1px 9px 5px -4px rgba(0,0,0,0.6);
+            -webkit-box-shadow: -1px 9px 5px -4px rgba(0,0,0,0.6);
+            -moz-box-shadow: -1px 9px 5px -4px rgba(0,0,0,0.6);
         }
     }
 
     .text{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
         h2 {
             font-family: "Titillium Web", sans-serif;
     
@@ -29,6 +42,7 @@ main{
             font-family: "Titillium Web", sans-serif;
             font-weight: 400;
             font-size: 14px;
+            margin-bottom: 10px;
         }
     }
 
