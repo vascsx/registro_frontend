@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { EditarComponent } from './pages/editar/editar.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
 // import { DetalhesComponent } from './pages/detalhes/detalhes.component';
 
 export const routes: Routes = [
@@ -21,11 +22,11 @@ export const routes: Routes = [
         component: EditarComponent
     },
 
-    // {
-    //     path: 'detalhes/:id',
-    //     component: DetalhesComponent
-    // }
-
+    {
+        path: 'detalhes/:id',
+        component: DetalhesComponent
+    }
+,
     {
         path: 'login',
         component: LoginComponent

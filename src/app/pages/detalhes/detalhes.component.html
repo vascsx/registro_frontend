@@ -1,29 +1,41 @@
 <div>
-    <h1>Detalhes funcionario</h1>
+    <h1>Detalhes do funcionario</h1>
 </div>
 
 <div>
     <form action="">
         <div class="input-box">
-            <label for="">Nome</label>
-            <input type="text" value="">
-            <label for="">Sobrenome</label>
-            <input type="text" value="">
-            <label for="">Departamento</label>
-            <input type="text" value="">
-            <label for="">Turno</label>
-            <input type="text" value="">
-            <label for="">Situação</label>
-            <input type="text" value="">
-            <label for="">Data de Criação</label>
-            <input type="text" value="">
-            <label for="">Data de Alteração</label>
-            <input type="text" value="">
+            <label for="">Nome: </label>
+            <input type="text" value="{{funcionario?.nome}}" disabled>
         </div>
-
+        <div class="input-box">
+            <label for="">Sobrenome: </label>
+            <input type="text"  value="{{funcionario?.sobrenome}}" disabled>
+        </div>
+        <div class="input-box">
+            <label for="">Departamento: </label>
+            <input type="text"  value="{{funcionario?.departamento}}" disabled>
+        </div>
+        <div class="input-box">
+            <label for="">Turno: </label>
+            <input type="text"  value="{{funcionario?.turno}}" disabled>
+        </div>
+        <div class="input-box">
+            <label for="">Situação:  </label>
+            <input type="text"  value="{{funcionario?.ativo}}" disabled>
+        </div>
+        <div class="input-box">
+            <label for="">Data de Criação: </label>
+            <input type="text"  value="{{funcionario?.dataDeCriacao}}" disabled>
+        </div>
+        <div class="input-box">
+            <label for="">Data de Alteração: </label>
+            <input type="text"  value="{{funcionario?.dataDeAlteracao}}" disabled>
+        </div>
+        
         <div class="btn-box">
-            <button>Inativar usuário</button>
-            <button routerLink="/"></button>
+            <button>Inativar Usuário</button>
+            <button routerLInk="" routerLinkActive = "router-link-active">Voltar</button>
         </div>
     </form>
 </div>
