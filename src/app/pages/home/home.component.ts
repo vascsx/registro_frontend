@@ -30,4 +30,10 @@ export class HomeComponent implements OnInit{
       this.funcionariosGeral = data.dados;
     });
   }
+  search(event: Event){
+    const searchTerm = (event.target as HTMLInputElement).value;
+    this.funcionarios = this.funcionariosGeral.filter((item) => {
+      return item.nome.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 || item.sobrenome.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+    });
+  }
 }
