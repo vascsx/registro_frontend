@@ -12,26 +12,34 @@ import { CommonModule } from '@angular/common';
   styleUrl: './detalhes.component.scss'
 })
 export class DetalhesComponent implements OnInit {
-  funcionario? :Funcionario;
-  id!: number;
-  constructor(private router: Router, private funcionarioService: FuncionarioService, private route:ActivatedRoute){}
+  
+  funcionario?: Funcionario;
+  id!:number;
 
-  ngOnInit(): void {
-      this.id = Number(this.route.snapshot.paramMap.get('id'));
-      this.funcionarioService.getFuncionario(this.id).subscribe((data) => {
+ constructor(private funcionarioService: FuncionarioService, private route: ActivatedRoute, private router : Router) {
 
+ }
+
+ ngOnInit(): void {
+
+     this.id =  Number(this.route.snapshot.paramMap.get("id"));
+
+     this.funcionarioService.getFuncionario( this.id).subscribe((data) => {
         const dados = data.dados;
-        dados.dataDeCriacao = new Date(dados.dataDeCriacao!).toLocaleDateString('pt-BR');
-        dados.dataDeAlteracao = new Date(dados.dataDeAlteracao!).toLocaleDateString('pt-BR');
-        this.funcionario = data.dados;
-      })
-  }
+        dados.dataDeCriacao = new Date(dados.dataDeCriacao!).toLocaleDateString("pt-BR");
+        dados.dataDeAlteracao = new Date(dados.dataDeAlteracao!).toLocaleDateString("pt-BR");
 
-  InativaFuncionario(){
-    this.funcionarioService.InativaFuncionario(this.id).subscribe((data) => {
-      console.log("error");
-      this.router.navigate(['']);
-      console.log("deu");
-    })
-  }
+        this.funcionario = dados;
+     });
+ }
+
+
+ InativaFuncionario(){
+
+     this.funcionarioService.InativaFuncionario(this.id).subscribe((data) => {
+       this.router.navigate(['']);
+       }
+     );
+
+ }
 }

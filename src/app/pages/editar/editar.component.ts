@@ -13,25 +13,29 @@ import { CommonModule } from '@angular/common';
   styleUrl: './editar.component.scss'
 })
 export class EditarComponent implements OnInit{
-  btnAcao: string = 'Editar'
-  btnTitulo: string = 'Editar funcionario';
-
+  btnAcao = "Editar";
+  btnTitulo = "Editar Funcionário!";
   funcionario!: Funcionario;
 
-  constructor(private funcionarioService: FuncionarioService, private route: ActivatedRoute, private router: Router){
+  constructor(private funcionarioService : FuncionarioService, private router :Router,  private route : ActivatedRoute) {
+
 
   }
+
   ngOnInit(): void {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
-      this.funcionarioService.getFuncionario(id).subscribe(data => {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.funcionarioService.getFuncionario(id).subscribe((data) => {
         this.funcionario = data.dados;
 
-      });
-  }
-
-  editarFuncionario(funcionario: Funcionario) {
-    this.funcionarioService.editarFuncionario(funcionario).subscribe(data => {
-      this.router.navigate(['/']);
     });
   }
+
+  async editFuncionario(funcionario : Funcionario){
+
+      this.funcionarioService.editarFuncionario(funcionario).subscribe(data => {
+        this.router.navigate(['/']);
+      });
+
+  }
+
 }
