@@ -29,4 +29,9 @@ export class FuncionarioService {
     return this.http.put<Response<Funcionario[]>>(`${this.apiUrl}`, funcionario);
   }
 
+
+  InativaFuncionario(id: number) :Observable<Response<Funcionario[]>> {
+    return this.http.put<Response<Funcionario[]>>(`${this.apiUrl}/inativaFuncionario/${id}`, id);  
+}
+
 }
