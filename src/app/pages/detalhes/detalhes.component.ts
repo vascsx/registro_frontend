@@ -3,11 +3,16 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionario } from '../../models/Funcionarios';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-detalhes',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, MatCardModule, MatLabel, MatOptionModule, MatFormField, MatButtonModule],
   templateUrl: './detalhes.component.html',
   styleUrl: './detalhes.component.scss'
 })

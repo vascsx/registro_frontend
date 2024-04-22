@@ -46,8 +46,9 @@
     <ng-container matColumnDef="Ações">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let funcionario">
-        <a  routerLink="editar/{{funcionario.id}}" mat-raised-button color="accent">Editar</a>
-        <a  routerLink="detalhes/{{funcionario.id}}"  mat-raised-button>Detalhes</a>
+        <a routerLink="editar/{{funcionario.id}}" mat-raised-button class="editar-btn">Editar</a>
+        <a routerLink="detalhes/{{funcionario.id}}" mat-raised-button class="detalhes-btn">Detalhes</a>
+        <a (click)="openDialog(funcionario.id)" mat-raised-button class="excluir-btn">Excluir</a>        
       </td>
     </ng-container>
 

@@ -4,11 +4,12 @@ import { Funcionario } from '../../models/Funcionarios';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-editar',
   standalone: true,
-  imports: [FuncionarioFormComponent, CommonModule],
+  imports: [FuncionarioFormComponent, CommonModule, MatButtonModule],
   templateUrl: './editar.component.html',
   styleUrl: './editar.component.scss'
 })

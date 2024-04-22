@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Funcionario } from '../../models/Funcionarios';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-excluir',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './excluir.component.html',
   styleUrl: './excluir.component.scss'
 })
-export class ExcluirComponent {
+export class ExcluirComponent implements OnInit{
+
   inputdata:any
   funcionario!: Funcionario;
 
@@ -32,4 +33,6 @@ export class ExcluirComponent {
        window.location.reload();
     });
   }
+
 }
+
