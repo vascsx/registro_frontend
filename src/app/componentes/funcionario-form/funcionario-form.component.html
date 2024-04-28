@@ -1,7 +1,7 @@
-<h1>{{ btnTitulo }}</h1>
 <div class="container">
-
+  
   <div class="card">
+    <h1>{{ btnTitulo }} <span>FUNCIONÁRIO</span></h1>
 
     <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDir="ngForm">
       <input type="hidden" value="" formControlName="id">
@@ -19,7 +19,7 @@
       <div class="input-box">
         <label for="departamento">DEPARTAMENTO</label>
         <select id="departamento" class="form-select" formControlName="departamento" required>
-          <option value="RH">RH</option>
+          <option value="RH">Rh</option>
           <option value="Financeiro">Financeiro</option>
           <option value="Compras">Compras</option>
           <option value="Atendimento">Atendimento</option>
