@@ -9,25 +9,25 @@ export const routes: Routes = [
     {
         path: '',
         component: HomeComponent,
-    },
+    }, //TELA PRINCIPAL
      
     {
         path: 'cadastro',
         component: CadastroComponent,
-    },
+    }, //TELA DE CADASTRO
 
     {
         path: 'editar/:id',
         component: EditarComponent
-    },
+    }, //TELA DE EDIÇÃO
 
     {
         path: 'detalhes/:id',
         component: DetalhesComponent
-    }
-    ,
-    {
-        path: 'login',
-        component: LoginComponent
-    }
+    } //TELA DE DETALHES
+    
+    // {
+    //     path: 'login',
+    //     component: LoginComponent
+    // }
 ];

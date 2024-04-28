@@ -2,5 +2,29 @@
     margin: 8px 8px 0px 0;
   }
   
+
+  .input-box {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    justify-content: center;
+    form{
+      input {
+        padding: 15px;
+        text-align: start;
+        font-size: 1.5rem;
+        border-radius: 2px;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .btn-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
   
   

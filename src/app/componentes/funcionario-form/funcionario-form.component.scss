@@ -1,54 +1,96 @@
-.card {
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
+$primary-color: #007bff;
+$secondary-color: rgb(112, 109, 109);
+$text-color: #000;
+
+h1 {
+  text-align: center;
+  font-size: 1.85rem;
+  font-weight: 500;
+  margin: 25px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  margin: auto; 
+  padding: 20px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-  h1 {
-    margin-bottom: 20px;
-  }
-
-  .input-box {
-    margin-bottom: 10px;
-
-    label {
-      margin-bottom: 5px;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ced4da;
-      border-radius: 4px;
-      box-sizing: border-box;
-      background-color: #fff;
-
-      &.text-dark {
-        color: #000; // Altere conforme necessário
-      }
-    }
-  }
-
-  .btn-box {
+  .card {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-    .btn {
-      padding: 8px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+    h1 {
+      margin-bottom: 12px;
+    }
 
-      &.btn-success {
-        background-color: #28a745;
-        color: #fff;
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-top: 10px;
+
+      label {
+        font-weight: bold;
+        font-size: 1.4rem;
       }
 
-      &.btn-primary {
-        background-color: #007bff;
-        color: #fff;
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #afafaf;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #fff;
+
+        &.text-dark {
+          color: $text-color; 
+        }
+      } 
+
+      select {
+        background: transparent;
+        width: 268px;
+        padding: 5px;
+        font-size: 1.42rem;
+        line-height: 1;
+        border: 0;
+        border-radius: 0;
+        height: 34px;
+      }
+    }
+
+    .btn-box {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .btn {
+        padding: 9px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+
+        &.btn-success {
+          background-color: $primary-color;
+          color: #fff;
+        }
+
+        &.btn-primary {
+          background-color: $secondary-color;
+  color: #fff;
+  margin-left: 10px;
+
+   &:active:hover {
+    background-color: $primary-color;
+    }
+        }
       }
     }
   }
