@@ -3,12 +3,12 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { Funcionario } from '../../models/Funcionarios';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-excluir',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './excluir.component.html',
   styleUrl: './excluir.component.scss'
 })
@@ -23,7 +23,11 @@ export class ExcluirComponent implements OnInit{
       this.inputdata = this.data;
 
       this.funcionarioService.getFuncionario(this.inputdata.id).subscribe(data => {
-          this.funcionario = data.dados;
+        const dados = data.dados;
+        dados.dataDeCriacao = new Date(dados.dataDeCriacao!).toLocaleDateString("pt-BR");
+        dados.dataDeAlteracao = new Date(dados.dataDeAlteracao!).toLocaleDateString("pt-BR");
+
+        this.funcionario = dados;
       });
   }
 
@@ -34,5 +38,7 @@ export class ExcluirComponent implements OnInit{
     });
   }
 
+
+ 
 }
 

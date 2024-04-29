@@ -1,12 +1,18 @@
-<div *ngIf="funcionario">
-    <h1 mat-dialog-title>Deseja confirmar a exclusão?</h1>
-    <div mat-dialog-content>
-      <p style="font: bold;">Funcionario: {{funcionario.nome}} {{funcionario.sobrenome}}</p>
-      <p style="font-style: bold;">Departamento: {{funcionario.departamento}}</p>    
+<div class="container-modal">
+  <div *ngIf="funcionario" class="modal">
+      <h1 mat-dialog-title>Deseja confirmar a <span>exclusão?</span></h1>
+      <div mat-dialog-content>
+        <p>Funcionario -> {{funcionario.nome}} {{funcionario.sobrenome}}</p>
+        <p>Departamento -> {{funcionario.departamento}}</p> 
+        <p>Turno -> {{funcionario.turno}}</p>  
+        <p>Situação -> {{funcionario.ativo == true ? 'Ativo' : 'Inativo'}}</p>  
+        <p>Data de Criação -> {{funcionario.dataDeCriacao}}</p>  
+        <p>Data de Alteração -> {{funcionario.dataDeAlteracao}}</p>  
+      </div>
     </div>
-  </div>
-  <div mat-dialog-actions class="btns">
-    <button mat-button  mat-raised-button color="warn" (click)="excluir()" style="background-color: red;">CONFIRMAR</button>
-    <button routerLink="" style="background-color: rgb(18, 84, 207);">VOLTAR</button>
-  </div>
+    <div mat-dialog-actions class="btn-box">
+      <button style="background-color: #07bff0;">VOLTAR</button>
+      <button mat-button  mat-raised-button color="warn" (click)="excluir()" style="background-color: red;">CONFIRMAR</button>
+    </div>
+</div>
   
