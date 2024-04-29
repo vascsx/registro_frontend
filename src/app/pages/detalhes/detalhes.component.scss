@@ -1,30 +1,83 @@
-.mat-mdc-button-base {
-    margin: 8px 8px 0px 0;
-  }
+*{
+  font-family: 'Titillium Web', sans-serif;
+}
   
 
+mat-card{
+
+  div {
+    h1{
+      font-size: 1.88rem;
+      text-align: center;
+      font-weight: bold;
+      margin-left: 12px;
+
+      span {
+        color: #007bff;
+        font-weight: bold;
+      }
+    }
+  }
+  border: 1px solid #d4d0d0;
+  filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.2)); 
+  width: max-content;
   .input-box {
     display: flex;
     align-items: center;
-    margin: 10px;
     justify-content: center;
+    margin-bottom: 15px;
+    margin-right: 60px;
     form{
       input {
-        padding: 15px;
-        text-align: start;
-        font-size: 1.5rem;
-        border-radius: 2px;
+        padding: 15px 40px;
         width: 100%;
-        margin: 0;
+        background-color: #FFFFFF;
+        color: #000000;
+        font-size: 1.5rem;
+        font-weight: bold;
+        border-style: solid;
+        border-radius: 0px;
+        box-shadow: 0px 0px 2px rgba(3, 3, 3, 0.35);
+        border-width: 1px;
+        border-color: #CCCCCC;
+        
+        
+        &:focus {
+          outline: none;
+        }
       }
-    }
-
-    .btn-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    }  
   }
+  .btn-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+  
+    button {
+      margin: 10px; 
+      padding: 10px 16px;
+      font-size: 1.35rem; 
+      font-weight: bold;
+      border: none;
+      border-radius: 4px; 
+      cursor: pointer; 
+      width: auto; 
+      filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.18)); 
+    }
+  
+    .inativa {
+      background-color: #ff0000; 
+      color: #ffffff; 
+    }
+  
+    .voltar {
+      background-color: #007bff; 
+      color: #ffffff; 
+    }
+  }
+  
+  
+}
   
   

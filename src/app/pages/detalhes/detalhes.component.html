@@ -1,55 +1,56 @@
 <mat-card>
-    <div>
-        <h1 class="text-light">Detalhes Funcionário</h1>
-    </div>
-  <div *ngIf="funcionario">
-  <form>
-  <div class="input-box">
-    <form>
-     <input matInput type="text" class="form-control text-dark" value="Nome: {{funcionario.nome}}" disabled>
+  <div>
+        <h1>DETALHES<span> FUNCIONÁRIO</span></h1>
+  </div>
+    <div *ngIf="funcionario">
+      <form>
+      <div class="input-box">
+        <form>
+        <input matInput type="text" class="form-control text-dark" value="NOME -> {{funcionario.nome.toLocaleUpperCase()}}" disabled>
+          </form>
+      </div>
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control  text-dark" value="SOBRENOME -> {{funcionario.sobrenome.toLocaleUpperCase()}}" disabled>
+        </form>
+      </div>
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control  text-dark" id="Livro" value="DEPARTAMENTO -> {{funcionario.departamento.toLocaleUpperCase()}}" disabled>
+        </form>
+      </div>
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="TURNO -> {{funcionario.turno.toLocaleUpperCase()}}" disabled>
+        </form>
+      </div>
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control text-dark" asp-for="LivroEmprestado" id="Livro" value="SITUAÇÃO -> {{ getSituacaoEmMaiusculas().toLocaleUpperCase() }}" disabled>
+        </form>
+      </div>
+      
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE CRIAÇÃO -> {{funcionario.dataDeCriacao}}" disabled>
+        </form>
+      </div>
+      
+      <div  class="input-box">
+        <form>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE ALTERAÇÃO -> {{funcionario.dataDeAlteracao}}" disabled>
+        </form>
+      </div> 
+
       </form>
-  </div>
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" value="Sobrenome: {{funcionario.sobrenome}}" disabled>
-    </form>
-  </div>
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" id="Livro" value="Departamento: {{funcionario.departamento}}" disabled>
-    </form>
-  </div>
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="Turno: {{funcionario.turno}}" disabled>
-    </form>
-  </div>
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="Situação: {{funcionario.ativo == true ? 'Ativo' : 'Inativo'}}" disabled>
-    </form>
-  </div>
-  
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="Data de Criação: {{funcionario.dataDeCriacao}}" disabled>
-    </form>
-  </div>
-  
-  <div  class="input-box">
-    <form>
-      <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="Data de Alteração: {{funcionario.dataDeAlteracao}}" disabled>
-    </form>
-  </div>  
-  <div class="btn-box">
-      <a (click)="InativaFuncionario()"  mat-raised-button>Inativar Usuário</a>
-      <a routerLink="" mat-raised-button>Voltar</a>
-  </div>
-  </form>
-  </div>
-  </mat-card>
+    </div>
+      <div class="btn-box">
+        <button routerLink="" class="voltar">VOLTAR</button>
+        <button (click)="InativaFuncionario()" class="inativa">INATIVAR USUÁRIO</button>
+      </div>
+</mat-card>

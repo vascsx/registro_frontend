@@ -43,7 +43,7 @@ h1 {
       display: flex;
       flex-direction: column;
       gap: 11px;
-      margin-top: 10px;
+      margin-bottom: 20px;
 
       label {
         font-weight: bold;
@@ -65,8 +65,6 @@ h1 {
         }
       } 
 
-
-     
       select {
         background: transparent;
         width: 268px;
@@ -85,20 +83,22 @@ h1 {
       align-items: center;
     
       button {
-        margin: 12px; 
-        padding: 11px 28px;
-        font-size: 1rem; 
+        margin: 10px; 
+        padding: 10px 16px;
+        font-size: 1.35rem; 
+        font-weight: bold;
         border: none;
         border-radius: 4px; 
         cursor: pointer; 
         width: auto; 
+        filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.18)); 
       }
-      
+    
       .btn-success {
         background-color: #ff0000; 
         color: #ffffff; 
       }
-    
+      
       .btn-primary {
         background-color: #007bff; 
         color: #ffffff; 
@@ -106,8 +106,12 @@ h1 {
         &:enabled {
           background-color: $primary-color;
         }
-      }
+
+        &:disabled {
+          background-color: #afafaf;
+        }
+      } 
     }
-  }
+  }  
 }
-    
+

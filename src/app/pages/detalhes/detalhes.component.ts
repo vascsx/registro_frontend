@@ -45,6 +45,9 @@ export class DetalhesComponent implements OnInit {
        this.router.navigate(['']);
        }
      );
+    }
 
- }
+    getSituacaoEmMaiusculas(): string {
+      return this.funcionario?.ativo ? 'Ativo' : 'Inativo';
+    }
 }
