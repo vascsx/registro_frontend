@@ -73,39 +73,41 @@ h1 {
         padding: 5px;
         font-size: 1.42rem;
         line-height: 1;
-        border: 0;
-        border-radius: 0;
+        border: 1px solid rgba(128, 128, 128, 0.712);
+        border-radius: 4;
         height: 34px;
       }
     }
 
     .btn-box {
       display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-
-      .btn {
-        padding: 9px 10px;
+      justify-content: center;
+      align-items: center;
+    
+      button {
+        margin: 12px; 
+        padding: 11px 28px;
+        font-size: 1rem; 
         border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-
-        &.btn-success {
+        border-radius: 4px; 
+        cursor: pointer; 
+        width: auto; 
+      }
+      
+      .btn-success {
+        background-color: #ff0000; 
+        color: #ffffff; 
+      }
+    
+      .btn-primary {
+        background-color: #007bff; 
+        color: #ffffff; 
+        
+        &:enabled {
           background-color: $primary-color;
-          color: #fff;
-        }
-
-        &.btn-primary {
-          background-color: $secondary-color;
-  color: #fff;
-  margin-left: 10px;
-
-   &:enabled {
-    background-color: $primary-color;
-    }
         }
       }
     }
   }
 }
+    

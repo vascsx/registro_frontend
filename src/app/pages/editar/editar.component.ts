@@ -14,8 +14,8 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './editar.component.scss'
 })
 export class EditarComponent implements OnInit{
-  btnAcao = "Editar";
-  btnTitulo = "Editar Funcionário!";
+  btnAcao = "EDITAR";
+  btnTitulo = "EDITAR";
   funcionario!: Funcionario;
 
   constructor(private funcionarioService : FuncionarioService, private router :Router,  private route : ActivatedRoute) {
