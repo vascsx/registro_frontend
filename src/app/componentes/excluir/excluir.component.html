@@ -1,7 +1,7 @@
-<div class="container-modal">
+<div class="container-modal" #modal>
   <div *ngIf="funcionario" class="modal">
-      <h1 mat-dialog-title>Deseja confirmar a <span>exclusão?</span></h1>
-      <div mat-dialog-content>
+    <div mat-dialog-content class="content">
+        <h1 mat-dialog-title>Deseja confirmar a <span>exclusão?</span></h1>
         <p>Funcionario -> {{funcionario.nome}} {{funcionario.sobrenome}}</p>
         <p>Departamento -> {{funcionario.departamento}}</p> 
         <p>Turno -> {{funcionario.turno}}</p>  
@@ -9,10 +9,9 @@
         <p>Data de Criação -> {{funcionario.dataDeCriacao}}</p>  
         <p>Data de Alteração -> {{funcionario.dataDeAlteracao}}</p>  
       </div>
-    </div>
-    <div mat-dialog-actions class="btn-box">
-      <button style="background-color: #07bff0;">VOLTAR</button>
-      <button mat-button  mat-raised-button color="warn" (click)="excluir()" style="background-color: red;">CONFIRMAR</button>
+      <div mat-dialog-actions class="btn-box">
+        <button style="background-color: #007bff;" (click)="voltar()">VOLTAR</button>
+        <button mat-button  mat-raised-button color="warn" (click)="excluir()" style="background-color: red;">CONFIRMAR</button>
+      </div>
     </div>
 </div>
-  

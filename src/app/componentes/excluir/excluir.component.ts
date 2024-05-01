@@ -16,6 +16,7 @@ export class ExcluirComponent implements OnInit{
 
   inputdata:any
   funcionario!: Funcionario;
+  dialogRef: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any, private funcionarioService: FuncionarioService, private router: Router, private ref:MatDialogRef<ExcluirComponent>){}
 
@@ -37,6 +38,12 @@ export class ExcluirComponent implements OnInit{
        window.location.reload();
     });
   }
+
+
+  voltar() {
+    this.ref.close();
+  }
+  
 
 
  

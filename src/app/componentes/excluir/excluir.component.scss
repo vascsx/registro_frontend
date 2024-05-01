@@ -12,6 +12,9 @@
         width: 380px;
         height: 200px;
 
+
+      
+
         padding: 20px 8px;
         h1 {
             font-size: 2.1rem;
@@ -30,10 +33,11 @@
         display: flex;
         justify-content: start;
         align-items: center;
+        gap: 10px;
       
         button {
-          margin: 10px; 
-          padding: 10px 16px;
+          margin-bottom: 30px;
+          padding: 10px 5px;
           font-size: 1.35rem; 
           font-weight: bold;
           border: none;
