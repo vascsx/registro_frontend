@@ -18,22 +18,22 @@
 
        <div class="input-box">
         <label for="cargo">CARGO</label>
-        <select id="cargo" class="form-select" formControlName="cargo" required>
-          <option *ngFor="let cargo of cargos" [value]="cargo.nome">{{ cargo.nome }}</option>
+        <select id="cargo" class="form-select" formControlName="cargoId" required>
+          <option *ngFor="let cargo of cargos" [value]="cargo.id">{{ cargo.nome }}</option>
         </select>
       </div>
 
       <div class="input-box">
         <label for="projeto">PROJETO</label>
-        <select id="projeto" class="form-select" formControlName="projeto" required>
-          <option *ngFor="let projeto of projetos" [value]="projeto.nome">{{ projeto.nome }}</option>
+        <select id="projeto" class="form-select" formControlName="projetoId" required>
+          <option *ngFor="let projeto of projetos" [value]="projeto.id">{{ projeto.nome }}</option>
         </select>
       </div>
 
       <div class="input-box">
       <label for="departamento">DEPARTAMENTO</label>
-      <select id="departamento" class="form-select" formControlName="departamento" required>
-        <option *ngFor="let dep of departamentos" [value]="dep.nome">{{ dep.nome }}</option>
+      <select id="departamento" class="form-select" formControlName="departamentoId" required>
+        <option *ngFor="let dep of departamentos" [value]="dep.id">{{ dep.nome }}</option>
       </select>
       </div>
 

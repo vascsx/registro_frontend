@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog'; // Importe MatDialog e MatDialogModule
 import { RouterLink } from '@angular/router';
+import { DepartamentoService, DepartamentoModel, CargoService, CargoModel, ProjetoService, ProjetoModel } from '../../services/departamento.service';
 
 @Component({
   standalone: true,
@@ -36,8 +37,17 @@ export class HomeComponent implements OnInit {
   columnsToDisplay = ['Situacao', 'Nome', 'Sobrenome', 'Departamento', 'Cargo', 'Projeto', 'Ações'];
   funcionarios: Funcionario[] = [];
   funcionariosGeral: Funcionario[] = [];
+  departamentos: DepartamentoModel[] = [];
+  cargos: CargoModel[] = [];
+  projetos: ProjetoModel[] = [];
 
-  constructor(private funcionarioService: FuncionarioService, private matDialog: MatDialog) {} // Injete MatDialog no construtor
+  constructor(
+    private funcionarioService: FuncionarioService,
+    private matDialog: MatDialog,
+    private departamentoService: DepartamentoService,
+    private cargoService: CargoService,
+    private projetoService: ProjetoService
+  ) {} // Injete MatDialog no construtor
 
   ngOnInit(): void {
     this.funcionarioService.getFuncionarios().subscribe(data => {
@@ -47,6 +57,16 @@ export class HomeComponent implements OnInit {
         return item;
       });
       this.funcionariosGeral = [...this.funcionarios];
+    });
+
+    this.departamentoService.getDepartamentos().subscribe(res => {
+      this.departamentos = res.dados;
+    });
+    this.cargoService.getCargos().subscribe(res => {
+      this.cargos = res.dados;
+    });
+    this.projetoService.getProjetos().subscribe(res => {
+      this.projetos = res.dados;
     });
   }
 
@@ -67,5 +87,20 @@ export class HomeComponent implements OnInit {
         id: id
       }
     });
+  }
+
+  getDepartamentoNome(id: number | string): string {
+    const dep = this.departamentos.find(d => d.id == id);
+    return dep ? dep.nome : id?.toString();
+  }
+
+  getCargoNome(id: number | string): string {
+    const cargo = this.cargos.find(c => c.id == id);
+    return cargo ? cargo.nome : id?.toString();
+  }
+
+  getProjetoNome(id: number | string): string {
+    const proj = this.projetos.find(p => p.id == id);
+    return proj ? proj.nome : id?.toString();
   }
 }

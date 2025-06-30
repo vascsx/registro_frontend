@@ -2,11 +2,11 @@ export interface Funcionario {
     id?: number;
     nome: string;
     sobrenome: string;
-    departamento: string;
+    departamentoId: string;
     ativo: boolean;
     turno: string;
     dataDeCriacao?: string;
     dataDeAlteracao?: string;
-    cargo?: string;
-    projeto?: string;
+    cargoId?: string;
+    projetoId?: string;
 }

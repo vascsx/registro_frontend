@@ -18,7 +18,7 @@
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" id="Livro" value="DEPARTAMENTO -> {{funcionario.departamento.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" id="Livro" value="DEPARTAMENTO -> {{funcionario.departamentoId.toLocaleUpperCase()}}" disabled>
         </form>
       </div>
       
@@ -49,13 +49,13 @@
 
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" value="CARGO -> {{funcionario.cargo?.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" value="CARGO -> {{funcionario.cargoId ? funcionario.cargoId.toLocaleUpperCase() : ''}}" disabled>
         </form>
       </div>
 
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" value="PROJETO -> {{funcionario.projeto?.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" value="PROJETO -> {{funcionario.projetoId ? funcionario.projetoId.toLocaleUpperCase() : ''}}" disabled>
         </form>
       </div>
       </form>
