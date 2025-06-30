@@ -16,15 +16,25 @@
         <input id="sobrenome" type="text" class="form-control text-dark" formControlName="sobrenome" placeholder="Insira o sobrenome!" required>
       </div>
 
-      <div class="input-box">
-        <label for="departamento">DEPARTAMENTO</label>
-        <select id="departamento" class="form-select" formControlName="departamento" required>
-          <option value="RH">RH</option>
-          <option value="Financeiro">FINANCEIRO</option>
-          <option value="Compras">COMPRAS</option>
-          <option value="Atendimento">ATENDIMENTO</option>
-          <option value="Zeladoria">ZELADORIA</option>
+       <div class="input-box">
+        <label for="cargo">CARGO</label>
+        <select id="cargo" class="form-select" formControlName="cargo" required>
+          <option *ngFor="let cargo of cargos" [value]="cargo.nome">{{ cargo.nome }}</option>
         </select>
+      </div>
+
+      <div class="input-box">
+        <label for="empresa">EMPRESA</label>
+        <select id="empresa" class="form-select" formControlName="empresa" required>
+          <option *ngFor="let empresa of empresas" [value]="empresa.nome">{{ empresa.nome }}</option>
+        </select>
+      </div>
+
+      <div class="input-box">
+      <label for="departamento">DEPARTAMENTO</label>
+      <select id="departamento" class="form-select" formControlName="departamento" required>
+        <option *ngFor="let dep of departamentos" [value]="dep.nome">{{ dep.nome }}</option>
+      </select>
       </div>
 
       <div class="input-box">
@@ -35,6 +45,8 @@
           <option value="Noite">NOITE</option>
         </select>
       </div>
+
+     
 
       <div class="btn-box">
         <button class="btn btn-success w-50" routerLink="">VOLTAR</button>

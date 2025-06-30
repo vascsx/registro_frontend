@@ -7,11 +7,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { FuncionarioService } from '../../services/funcionario.service';
+import { DepartamentoService, DepartamentoModel, EmpresaService, EmpresaModel, CargoService, CargoModel } from '../../services/departamento.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-funcionario-form',
   standalone: true,
-  imports: [ ReactiveFormsModule, FormsModule, RouterLink, MatIconModule, MatCardModule, MatFormField, MatLabel, MatOptionModule],
+  imports: [ CommonModule, ReactiveFormsModule, FormsModule, RouterLink, MatIconModule, MatCardModule, MatFormField, MatLabel, MatOptionModule],
   templateUrl: './funcionario-form.component.html',
   styleUrl: './funcionario-form.component.scss'
 })
@@ -23,10 +25,18 @@ export class FuncionarioFormComponent implements OnInit{
 
   funcionarioForm!: FormGroup;
   ativo:number = 1;
+  departamentos: DepartamentoModel[] = [];
+  empresas: EmpresaModel[] = [];
+  cargos: CargoModel[] = [];
 
 
-  constructor(private funcionarioService : FuncionarioService, private router: Router) {
-  }
+  constructor(
+    private funcionarioService : FuncionarioService,
+    private router: Router,
+    private departamentoService: DepartamentoService,
+    private empresaService: EmpresaService,
+    private cargoService: CargoService
+  ) {}
 
 
   ngOnInit(): void {
@@ -34,12 +44,40 @@ export class FuncionarioFormComponent implements OnInit{
     console.log(this.dadosFuncionario?.ativo);
 
 
+    this.departamentoService.getDepartamentos().subscribe({
+      next: (res) => {
+        this.departamentos = res.dados;
+      },
+      error: (err) => {
+        this.departamentos = [];
+      }
+    });
+
+    this.empresaService.getEmpresas().subscribe({
+      next: (res) => {
+        this.empresas = res.dados;
+      },
+      error: (err) => {
+        this.empresas = [];
+      }
+    });
+
+    this.cargoService.getCargos().subscribe({
+      next: (res) => {
+        this.cargos = res.dados;
+      },
+      error: (err) => {
+        this.cargos = [];
+      }
+    });
 
     this.funcionarioForm = new FormGroup ({
       id: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.id : 0),
       nome: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.nome : '', [Validators.required]),
       sobrenome: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.sobrenome : '',[Validators.required]),
       departamento: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.departamento : '',[Validators.required]),
+      cargo: new FormControl(this.dadosFuncionario ? (this.dadosFuncionario as any).cargo || '' : '', [Validators.required]),
+      empresa: new FormControl(this.dadosFuncionario ? (this.dadosFuncionario as any).empresa || '' : '', [Validators.required]),
       turno: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.turno : '',[Validators.required]),
       ativo:  new FormControl(this.dadosFuncionario ? this.dadosFuncionario?.ativo : true),
       dataDeCriacao: new FormControl(new Date()),
