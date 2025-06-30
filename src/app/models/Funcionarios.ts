@@ -7,4 +7,6 @@ export interface Funcionario {
     turno: string;
     dataDeCriacao?: string;
     dataDeAlteracao?: string;
+    cargo?: string;
+    projeto?: string;
 }

@@ -8,7 +8,7 @@ export interface DepartamentoModel {
   nome: string;
 }
 
-export interface EmpresaModel {
+export interface ProjetoModel {
   id: number;
   nome: string;
 }
@@ -34,13 +34,13 @@ export class DepartamentoService {
 @Injectable({
   providedIn: 'root'
 })
-export class EmpresaService {
-  private apiUrl = `${environment.apiUrl}/Empresa`;
+export class ProjetoService {
+  private apiUrl = `${environment.apiUrl}/Projeto`;
 
   constructor(private http: HttpClient) {}
 
-  getEmpresas(): Observable<{ dados: EmpresaModel[] }> {
-    return this.http.get<{ dados: EmpresaModel[] }>(this.apiUrl);
+  getProjetos(): Observable<{ dados: ProjetoModel[] }> {
+    return this.http.get<{ dados: ProjetoModel[] }>(this.apiUrl);
   }
 }
 

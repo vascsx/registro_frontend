@@ -42,6 +42,16 @@
       <td mat-cell *matCellDef="let funcionario"> {{funcionario.departamento}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="Cargo">
+      <th mat-header-cell *matHeaderCellDef>Cargo</th>
+      <td mat-cell *matCellDef="let funcionario"> {{funcionario.cargo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Projeto">
+      <th mat-header-cell *matHeaderCellDef>Projeto</th>
+      <td mat-cell *matCellDef="let funcionario"> {{funcionario.projeto}} </td>
+    </ng-container>
+
     <ng-container matColumnDef="Ações" class="btns">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let funcionario" class="actions-cell">

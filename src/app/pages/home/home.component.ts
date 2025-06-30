@@ -33,7 +33,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  columnsToDisplay = ['Situacao', 'Nome', 'Sobrenome', 'Departamento', 'Ações'];
+  columnsToDisplay = ['Situacao', 'Nome', 'Sobrenome', 'Departamento', 'Cargo', 'Projeto', 'Ações'];
   funcionarios: Funcionario[] = [];
   funcionariosGeral: Funcionario[] = [];
 

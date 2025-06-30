@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { FuncionarioService } from '../../services/funcionario.service';
-import { DepartamentoService, DepartamentoModel, EmpresaService, EmpresaModel, CargoService, CargoModel } from '../../services/departamento.service';
+import { DepartamentoService, DepartamentoModel, ProjetoService, ProjetoModel, CargoService, CargoModel } from '../../services/departamento.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -26,7 +26,7 @@ export class FuncionarioFormComponent implements OnInit{
   funcionarioForm!: FormGroup;
   ativo:number = 1;
   departamentos: DepartamentoModel[] = [];
-  empresas: EmpresaModel[] = [];
+  projetos: ProjetoModel[] = [];
   cargos: CargoModel[] = [];
 
 
@@ -34,7 +34,7 @@ export class FuncionarioFormComponent implements OnInit{
     private funcionarioService : FuncionarioService,
     private router: Router,
     private departamentoService: DepartamentoService,
-    private empresaService: EmpresaService,
+    private projetoService: ProjetoService,
     private cargoService: CargoService
   ) {}
 
@@ -53,12 +53,12 @@ export class FuncionarioFormComponent implements OnInit{
       }
     });
 
-    this.empresaService.getEmpresas().subscribe({
+    this.projetoService.getProjetos().subscribe({
       next: (res) => {
-        this.empresas = res.dados;
+        this.projetos = res.dados;
       },
       error: (err) => {
-        this.empresas = [];
+        this.projetos = [];
       }
     });
 
@@ -77,7 +77,7 @@ export class FuncionarioFormComponent implements OnInit{
       sobrenome: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.sobrenome : '',[Validators.required]),
       departamento: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.departamento : '',[Validators.required]),
       cargo: new FormControl(this.dadosFuncionario ? (this.dadosFuncionario as any).cargo || '' : '', [Validators.required]),
-      empresa: new FormControl(this.dadosFuncionario ? (this.dadosFuncionario as any).empresa || '' : '', [Validators.required]),
+      projeto: new FormControl(this.dadosFuncionario ? (this.dadosFuncionario as any).projeto || '' : '', [Validators.required]),
       turno: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.turno : '',[Validators.required]),
       ativo:  new FormControl(this.dadosFuncionario ? this.dadosFuncionario?.ativo : true),
       dataDeCriacao: new FormControl(new Date()),
