@@ -62,7 +62,7 @@
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let funcionario" class="actions-cell">
         <a routerLink="editar/{{funcionario.id}}" mat-raised-button color="accent" class="action-btn">Editar</a>
-        <a routerLink="detalhes/{{funcionario.id}}" mat-raised-button class="action-btn">Detalhes</a>
+        <a (click)="openDetalhesDialog(funcionario.id)" mat-raised-button class="action-btn">Detalhes</a>
         <a (click)="openDialog(funcionario.id)" mat-raised-button color="warn" class="action-btn">Excluir</a>        
       </td>      
     </ng-container>

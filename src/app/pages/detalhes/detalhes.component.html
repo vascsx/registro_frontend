@@ -18,7 +18,9 @@
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" id="Livro" value="DEPARTAMENTO -> {{funcionario.departamentoId.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark"
+            [value]="'DEPARTAMENTO -> ' + getDepartamentoNome(funcionario.departamentoId)"
+            disabled>
         </form>
       </div>
       
@@ -34,7 +36,6 @@
         </form>
       </div>
       
-      
       <div  class="input-box">
         <form>
           <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE CRIAÇÃO -> {{funcionario.dataDeCriacao}}" disabled>
@@ -49,13 +50,17 @@
 
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" value="CARGO -> {{funcionario.cargoId ? funcionario.cargoId.toLocaleUpperCase() : ''}}" disabled>
+          <input matInput type="text" class="form-control  text-dark"
+            [value]="'CARGO -> ' + getCargoNome(funcionario.cargoId)"
+            disabled>
         </form>
       </div>
 
-      <div  class="input-box">
+      <div class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" value="PROJETO -> {{funcionario.projetoId ? funcionario.projetoId.toLocaleUpperCase() : ''}}" disabled>
+          <input matInput type="text" class="form-control  text-dark"
+            [value]="'PROJETO -> ' + getProjetoNome(funcionario.projetoId)"
+            disabled>
         </form>
       </div>
       </form>

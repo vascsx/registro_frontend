@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionario } from '../../models/Funcionarios';
@@ -8,6 +8,7 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { DepartamentoService, DepartamentoModel, CargoService, CargoModel, ProjetoService, ProjetoModel } from '../../services/departamento.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -31,12 +32,14 @@ export class DetalhesComponent implements OnInit {
    private router : Router,
    private departamentoService: DepartamentoService,
    private cargoService: CargoService,
-   private projetoService: ProjetoService
+   private projetoService: ProjetoService,
+   @Inject(MAT_DIALOG_DATA) public data: any,
+   public dialogRef: MatDialogRef<DetalhesComponent>
  ) {}
 
  ngOnInit(): void {
 
-     this.id =  Number(this.route.snapshot.paramMap.get("id"));
+     this.id =  this.data?.id ?? Number(this.route.snapshot.paramMap.get("id"));
 
      this.funcionarioService.getFuncionario( this.id).subscribe((data) => {
         const dados = data.dados;
@@ -69,18 +72,21 @@ export class DetalhesComponent implements OnInit {
       return this.funcionario?.ativo ? 'Ativo' : 'Inativo';
     }
 
-    getDepartamentoNome(id: number | string): string {
+    getDepartamentoNome(id: number | string | undefined): string {
+      if (id === undefined || id === null) return '';
       const dep = this.departamentos.find(d => d.id == id);
-      return dep ? dep.nome : id?.toString();
+      return dep ? dep.nome : id.toString();
     }
 
-    getCargoNome(id: number | string): string {
+    getCargoNome(id: number | string | undefined): string {
+      if (id === undefined || id === null) return '';
       const cargo = this.cargos.find(c => c.id == id);
-      return cargo ? cargo.nome : id?.toString();
+      return cargo ? cargo.nome : id.toString();
     }
 
-    getProjetoNome(id: number | string): string {
+    getProjetoNome(id: number | string | undefined): string {
+      if (id === undefined || id === null) return '';
       const proj = this.projetos.find(p => p.id == id);
-      return proj ? proj.nome : id?.toString();
+      return proj ? proj.nome : id.toString();
     }
 }

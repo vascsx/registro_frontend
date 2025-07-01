@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario.service';
 import { Funcionario } from '../../models/Funcionarios';
 import { ExcluirComponent } from '../../componentes/excluir/excluir.component';
+import { DetalhesComponent } from '../detalhes/detalhes.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -47,7 +48,7 @@ export class HomeComponent implements OnInit {
     private departamentoService: DepartamentoService,
     private cargoService: CargoService,
     private projetoService: ProjetoService
-  ) {} // Injete MatDialog no construtor
+  ) {} 
 
   ngOnInit(): void {
     this.funcionarioService.getFuncionarios().subscribe(data => {
@@ -58,7 +59,6 @@ export class HomeComponent implements OnInit {
       });
       this.funcionariosGeral = [...this.funcionarios];
     });
-
     this.departamentoService.getDepartamentos().subscribe(res => {
       this.departamentos = res.dados;
     });
@@ -89,17 +89,27 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  getDepartamentoNome(id: number | string): string {
+  openDetalhesDialog(id: number): void {
+    this.matDialog.open(DetalhesComponent, {
+      width: '600px',
+      data: { id }
+    });
+  }
+
+  getDepartamentoNome(id: number | string | undefined): string {
+    if (id === undefined || id === null) return '';
     const dep = this.departamentos.find(d => d.id == id);
     return dep ? dep.nome : id?.toString();
   }
 
-  getCargoNome(id: number | string): string {
+  getCargoNome(id: number | string | undefined): string {
+    if (id === undefined || id === null) return '';
     const cargo = this.cargos.find(c => c.id == id);
     return cargo ? cargo.nome : id?.toString();
   }
 
-  getProjetoNome(id: number | string): string {
+  getProjetoNome(id: number | string | undefined): string {
+    if (id === undefined || id === null) return '';
     const proj = this.projetos.find(p => p.id == id);
     return proj ? proj.nome : id?.toString();
   }
