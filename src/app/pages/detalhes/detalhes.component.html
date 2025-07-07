@@ -6,52 +6,52 @@
       <form>
       <div class="input-box">
         <form>
-        <input matInput type="text" class="form-control text-dark" value="NOME -> {{funcionario.nome.toLocaleUpperCase()}}" disabled>
+        <input matInput type="text" class="form-control text-dark" value="NOME : {{funcionario.nome.toLocaleUpperCase()}}" disabled>
           </form>
       </div>
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" value="SOBRENOME -> {{funcionario.sobrenome.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" value="SOBRENOME : {{funcionario.sobrenome.toLocaleUpperCase()}}" disabled>
         </form>
       </div>
       
       <div  class="input-box">
         <form>
           <input matInput type="text" class="form-control  text-dark"
-            [value]="'DEPARTAMENTO -> ' + getDepartamentoNome(funcionario.departamentoId)"
+            [value]="'DEPARTAMENTO : ' + getDepartamentoNome(funcionario.departamentoId)"
             disabled>
         </form>
       </div>
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="TURNO -> {{funcionario.turno.toLocaleUpperCase()}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="TURNO : {{funcionario.turno.toLocaleUpperCase()}}" disabled>
         </form>
       </div>
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control text-dark" asp-for="LivroEmprestado" id="Livro" value="SITUAÇÃO -> {{ getSituacaoEmMaiusculas().toLocaleUpperCase() }}" disabled>
+          <input matInput type="text" class="form-control text-dark" asp-for="LivroEmprestado" id="Livro" value="SITUAÇÃO : {{ getSituacaoEmMaiusculas().toLocaleUpperCase() }}" disabled>
         </form>
       </div>
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE CRIAÇÃO -> {{funcionario.dataDeCriacao}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE CRIAÇÃO : {{funcionario.dataDeCriacao}}" disabled>
         </form>
       </div>
       
       <div  class="input-box">
         <form>
-          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE ALTERAÇÃO -> {{funcionario.dataDeAlteracao}}" disabled>
+          <input matInput type="text" class="form-control  text-dark" asp-for="LivroEmprestado" id="Livro" value="DATA DE ALTERAÇÃO : {{funcionario.dataDeAlteracao}}" disabled>
         </form>
       </div> 
 
       <div  class="input-box">
         <form>
           <input matInput type="text" class="form-control  text-dark"
-            [value]="'CARGO -> ' + getCargoNome(funcionario.cargoId)"
+            [value]="'CARGO : ' + getCargoNome(funcionario.cargoId)"
             disabled>
         </form>
       </div>
@@ -59,7 +59,7 @@
       <div class="input-box">
         <form>
           <input matInput type="text" class="form-control  text-dark"
-            [value]="'PROJETO -> ' + getProjetoNome(funcionario.projetoId)"
+            [value]="'PROJETO : ' + getProjetoNome(funcionario.projetoId)"
             disabled>
         </form>
       </div>
